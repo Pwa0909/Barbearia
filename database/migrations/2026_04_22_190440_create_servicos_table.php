@@ -13,9 +13,14 @@ return new class extends Migration
     {
         Schema::create('servicos', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('nome', 100);
+            $table->text('descricao')->nullable();
+            $table->decimal('preco', 10, 2);
+            $table->integer('duracao_min');
         });
     }
+      
+    
 
     /**
      * Reverse the migrations.
@@ -26,12 +31,3 @@ return new class extends Migration
     }
 };
 
-{
-    Schema::create('servicos', function (Blueprint $table) {
-        $table->id();
-        $table->string('nome');
-        $table->text('descricao')->nullable();
-        $table->decimal('preco', 10, 2);
-        $table->integer('duracao_min');
-    });
-}

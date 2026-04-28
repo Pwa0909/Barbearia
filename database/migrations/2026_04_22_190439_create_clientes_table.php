@@ -14,6 +14,11 @@ return new class extends Migration
         Schema::create('clientes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('nome');
+            $table->string('telefone')->nullable();
+            $table->string('email')->unique();
+            $table->string('senha')->nullable();
+            $table->timestamp('data_cadastro')->useCurrent();
         });
     }
 
@@ -26,13 +31,5 @@ return new class extends Migration
     }
 };
 
-{
-    Schema::create('clientes', function (Blueprint $table) {
-        $table->id();
-        $table->string('nome');
-        $table->string('telefone')->nullable();
-        $table->string('email')->unique();
-        $table->string('senha')->nullable();
-        $table->timestamp('data_cadastro')->useCurrent();
-    });
-}
+
+    
